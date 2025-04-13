@@ -1,28 +1,22 @@
 import express from 'express';
-import { createServer } from 'node:http';
-import { sequelize } from './config/database';
-import usuarioRoutes from './routes/usuarioRoutes';
+import { sequelize } from './src/config/database.js';
+import usuarioRoutes from './src/routes/usuarioRoutes.js';
 
 const app = express();
+const PORT = 3000;
+
 app.use(express.json());
 
 // Rotas
 app.use('/usuarios', usuarioRoutes);
 
-// Testando a conexao com o banco de dados
+// Testando a conexão com o banco de dados
 sequelize.authenticate()
-    .then(() => console.log('Conexão com o banco de dados estabelecida com sucesso.'))
-    .catch(err => console.error('Não foi possível conectar ao banco de dados: ', err));
+  .then(() => console.log('Conexão com o banco de dados estabelecida com sucesso.'))
+  .catch(err => console.error('Não foi possível conectar ao banco de dados:', err));
 
-const server = createServer((req, res) =>{
-    app(req, res);
-
+// Iniciando o servidor
+app.listen(PORT, () => {
+    
+  console.log(`Servidor rodando na porta ${PORT}`);
 });
-
-server.listen(3000, () => {
-    console.log('Servidor rodando na porte :3000')
-
-})
-
-
-

@@ -1,4 +1,4 @@
-import usuarioService from '../services/usuarioService';
+import usuarioService from '../services/usuarioService.js';
 
 
 const getAllUsuarios = async (req, res) => {
@@ -20,7 +20,7 @@ const createUsuario = async (req, res) => {
 
   } catch(error){
 
-    res.status(500).json({ message: 'Erro ao buscar usuários: '})
+    res.status(500).json({ message: 'Erro ao criar usuário. '})
   }
 };
 

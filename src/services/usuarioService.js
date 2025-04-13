@@ -1,12 +1,11 @@
-import { get } from "dottie";
-import Usuario from "../models/usuario"
+import Usuario from "../models/usuario.js"
 
 const getAllUsuarios = async() => {
 
-  return await Usuario.FindAll();
+  return await Usuario.findAll();
 };
 
-const createUsuario = async() => {
+const createUsuario = async(usuarioData) => {
 
   return await Usuario.create(usuarioData);
 };
