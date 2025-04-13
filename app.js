@@ -1,7 +1,7 @@
 import express from 'express';
 import { createServer } from 'node:http';
 import { sequelize } from './config/database';
-import usuarioRoutes from './routes/usuarioRoutes'
+import usuarioRoutes from './routes/usuarioRoutes';
 
 const app = express();
 app.use(express.json());
